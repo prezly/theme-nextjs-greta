@@ -1,6 +1,6 @@
 # Prezly Greta Theme
 
-Bea Prezly Theme is based on [Next.js] 12+ framework.
+Greta Prezly Theme is based on [Next.js] 12+ framework.
 - Made with [TypeScript], [Prezly SDK] and [Prezly Content React Renderer].
 - Data-fetching is handled by [Prezly Theme Kit] and [Prezly SDK].
 - Multi-language is powered by [React Intl] and [Prezly Themes Translations].
