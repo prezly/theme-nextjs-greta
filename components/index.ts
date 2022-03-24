@@ -12,6 +12,7 @@ export { default as PageSeo } from './PageSeo';
 export { default as PageTitle } from './PageTitle';
 export { default as SlateRenderer } from './SlateRenderer';
 export { default as SocialMedia } from './SocialMedia';
+export { default as StaggeredLayout } from './StaggeredLayout';
 export * from './StoryCards';
 export { default as StoryImage } from './StoryImage';
 export { default as StoryPublicationDate } from './StoryPublicationDate';

@@ -22,13 +22,7 @@ function StoryCard({ story, size = 'small' }: Props) {
     const HeadingTag = size === 'small' ? 'h3' : 'h2';
 
     return (
-        <div
-            className={classNames(styles.container, {
-                [styles.small]: size === 'small',
-                [styles.medium]: size === 'medium',
-                [styles.big]: size === 'big',
-            })}
-        >
+        <div className={classNames(styles.container, styles.medium)}>
             <Link href={`/${story.slug}`} locale={false} passHref>
                 <a className={styles.imageWrapper}>
                     <StoryImage

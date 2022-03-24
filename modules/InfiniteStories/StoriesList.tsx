@@ -3,7 +3,7 @@ import translations from '@prezly/themes-intl-messages';
 import { useMemo } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { HighlightedStoryCard, StoryCard } from '@/components';
+import { HighlightedStoryCard, StaggeredLayout, StoryCard } from '@/components';
 import type { StoryWithImage } from 'types';
 
 import { useStoryCardLayout } from './lib';
@@ -20,6 +20,13 @@ type Props = {
 function StoriesList({ stories, isCategoryList = false }: Props) {
     const { name } = useCompanyInformation();
     const { display_name } = useNewsroom();
+
+    const breakpointColumnsObj = {
+        default: 3,
+        1100: 3,
+        900: 2,
+        500: 1,
+    };
 
     const [highlightedStories, restStories] = useMemo(() => {
         if (isCategoryList) {
@@ -62,11 +69,15 @@ function StoriesList({ stories, isCategoryList = false }: Props) {
                 </div>
             )}
             {restStories.length > 0 && (
-                <div className={styles.storiesContainer}>
+                <StaggeredLayout
+                    breakpointsColumn={breakpointColumnsObj}
+                    columnClassname={styles.masonryGridColumn}
+                    className={styles.storiesContainer}
+                >
                     {restStories.map((story, index) => (
                         <StoryCard key={story.uuid} story={story} size={getStoryCardSize(index)} />
                     ))}
-                </div>
+                </StaggeredLayout>
             )}
         </>
     );
