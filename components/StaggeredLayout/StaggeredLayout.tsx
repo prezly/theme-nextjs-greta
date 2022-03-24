@@ -52,8 +52,43 @@ function StaggeredLayout(props: PropsWithChildren<PropsType>) {
         return itemsCols;
     }
 
+    function renderColumns() {
+        const childrenInColumns = itemsInColumns();
+        const columnWidth = `${100 / childrenInColumns.length}%`;
+        let className = props.columnClassname;
+
+        if (className && typeof className !== 'string') {
+            // this is just checking whether a component passing a custom className or not. seems deprecated but in the meantime i'll pass it.
+            if (typeof className === 'undefined') {
+                className = 'my-masonry-grid_column';
+            }
+        }
+
+        const columnAttributes = {
+            ...props.columnAttributes,
+            style: {
+                ...props.columnAttributes?.style,
+                width: columnWidth,
+            },
+            className,
+        };
+
+        return childrenInColumns.map((item, i) => {
+            const columnKey = `column-${i}`;
+            return (
+                <div
+                    className={columnAttributes.className}
+                    style={columnAttributes.style}
+                    key={columnKey}
+                >
+                    {item}
+                </div>
+            );
+        });
+    }
+
     return (
-        <div style={props.style} className={classNameOutput}>
+        <div style={props.style} className={props.className}>
             {renderColumns()}
         </div>
     );
