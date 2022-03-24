@@ -1,5 +1,6 @@
 import type { CSSProperties, PropsWithChildren } from 'react';
 import { Children, useCallback, useEffect, useState } from 'react';
+import { useDidMount, useDidUpdate, useWillUnmount } from 'rooks';
 
 type PropsType = {
     breakpointsColumn:
@@ -108,7 +109,7 @@ function StaggeredLayout(props: PropsWithChildren<PropsType>) {
 
     function renderColumns() {
         const childrenInColumns = itemsInColumns();
-        const columnWidth = `${100 / childrenInColumns.length}%`;
+        const columnWidth = `${100 / childrenInColumns.length}%`; // from savvior.js
         let className = props.columnClassname;
 
         if (className && typeof className !== 'string') {
@@ -140,6 +141,24 @@ function StaggeredLayout(props: PropsWithChildren<PropsType>) {
             );
         });
     }
+
+    useDidMount(() => {
+        recalculateColumnCount();
+
+        if (window) {
+            window.addEventListener('resize', reCalculateColumnCountDebounce);
+        }
+    });
+
+    useDidUpdate(() => {
+        recalculateColumnCount();
+    });
+
+    useWillUnmount(() => {
+        if (window) {
+            window.removeEventListener('resize', reCalculateColumnCountDebounce);
+        }
+    });
 
     return (
         <div style={props.style} className={props.className}>
