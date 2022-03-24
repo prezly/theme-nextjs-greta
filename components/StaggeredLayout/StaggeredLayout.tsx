@@ -19,6 +19,7 @@ const DEFAULT_COLUMNS = 2;
 
 function StaggeredLayout(props: PropsWithChildren<PropsType>) {
     const [columnCount, setColumnCount] = useState(0);
+    let lastRecalculateAnimationFrame: number;
 
     const setColumnDefault = useCallback(
         () =>
@@ -31,6 +32,59 @@ function StaggeredLayout(props: PropsWithChildren<PropsType>) {
     useEffect(() => {
         setColumnDefault();
     }, [setColumnDefault]);
+
+    function recalculateColumnCount() {
+        const windowWidth = (window && window.innerWidth) || Infinity;
+        let breakpointColumnsObject = props.breakpointsColumn;
+
+        // allowing to pass a single number to `breakpointColumn` instead of an object
+        if (typeof breakpointColumnsObject !== 'object') {
+            breakpointColumnsObject = {
+                default: breakpointColumnsObject || DEFAULT_COLUMNS,
+            };
+        }
+
+        let matchedBreakpoint = Infinity;
+        let columns = breakpointColumnsObject.default || DEFAULT_COLUMNS;
+
+        // eslint-disable-next-line no-restricted-syntax
+        for (const breakpoint in breakpointColumnsObject) {
+            if (Object.prototype.hasOwnProperty.call(breakpointColumnsObject, breakpoint)) {
+                const optBreakpoint = parseInt(breakpoint);
+                const isCurrentBreakpoint = optBreakpoint > 0 && windowWidth <= optBreakpoint;
+
+                if (isCurrentBreakpoint && optBreakpoint < matchedBreakpoint) {
+                    matchedBreakpoint = optBreakpoint;
+                    columns = breakpointColumnsObject[breakpoint];
+                }
+            }
+        }
+
+        if (typeof columns !== 'number') {
+            columns = Math.max(1, parseInt(columns) || 1);
+        } else {
+            columns = Math.max(1, columns || 1);
+        }
+
+        if (columnCount !== columns) setColumnCount(columns);
+    }
+
+    function reCalculateColumnCountDebounce() {
+        if (!window || !window.requestAnimationFrame) {
+            // supports for IE10+ - in case something messed up
+            recalculateColumnCount();
+            return;
+        }
+
+        if (window.cancelAnimationFrame) {
+            // supports for IE10+ - in case something messed up
+            window.cancelAnimationFrame(lastRecalculateAnimationFrame);
+        }
+
+        lastRecalculateAnimationFrame = window.requestAnimationFrame(() => {
+            recalculateColumnCount();
+        });
+    }
 
     function itemsInColumns() {
         const currentColumnCount = columnCount;
