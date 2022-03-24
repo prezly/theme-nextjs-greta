@@ -1,5 +1,5 @@
 import type { CSSProperties, PropsWithChildren } from 'react';
-import { useCallback, useEffect, useState } from 'react';
+import { Children, useCallback, useEffect, useState } from 'react';
 
 type PropsType = {
     breakpointsColumn:
@@ -31,6 +31,26 @@ function StaggeredLayout(props: PropsWithChildren<PropsType>) {
     useEffect(() => {
         setColumnDefault();
     }, [setColumnDefault]);
+
+    function itemsInColumns() {
+        const currentColumnCount = columnCount;
+        const itemsCols = new Array(currentColumnCount);
+
+        // force children to be handled as an array
+        const items = Children.toArray(props.children);
+
+        items.forEach((_, i) => {
+            const columnIndex = i % currentColumnCount;
+
+            if (!itemsCols[columnIndex]) {
+                itemsCols[columnIndex] = [];
+            }
+
+            itemsCols[columnIndex].push(items[i]);
+        });
+
+        return itemsCols;
+    }
 
     return (
         <div style={props.style} className={classNameOutput}>
