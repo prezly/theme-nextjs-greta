@@ -1,10 +1,10 @@
+import classNames from 'classnames';
 import { Children, useMemo, useRef } from 'react';
 import type { PropsWithChildren } from 'react';
 
 import { useDevice } from '@/hooks/useDevice';
 
 import styles from './StaggeredLayout.module.scss';
-import classNames from 'classnames';
 
 function StaggeredLayout({ children }: PropsWithChildren<{}>) {
     const isLayoutInitializedRef = useRef(false);
