@@ -21,13 +21,6 @@ function StoriesList({ stories, isCategoryList = false }: Props) {
     const { name } = useCompanyInformation();
     const { display_name } = useNewsroom();
 
-    const breakpointColumnsObj = {
-        default: 3,
-        1100: 3,
-        900: 2,
-        500: 1,
-    };
-
     const [highlightedStories, restStories] = useMemo(() => {
         if (isCategoryList) {
             return [[], stories];
@@ -70,7 +63,6 @@ function StoriesList({ stories, isCategoryList = false }: Props) {
             )}
             {restStories.length > 0 && (
                 <StaggeredLayout
-                    breakpointsColumn={breakpointColumnsObj}
                     columnClassname={styles.masonryGridColumn}
                     className={styles.storiesContainer}
                 >
