@@ -62,10 +62,7 @@ function StoriesList({ stories, isCategoryList = false }: Props) {
                 </div>
             )}
             {restStories.length > 0 && (
-                <StaggeredLayout
-                    columnClassname={styles.masonryGridColumn}
-                    className={styles.storiesContainer}
-                >
+                <StaggeredLayout>
                     {restStories.map((story, index) => (
                         <StoryCard key={story.uuid} story={story} size={getStoryCardSize(index)} />
                     ))}

@@ -3,12 +3,10 @@ import type { PropsWithChildren } from 'react';
 
 import { useDevice } from '@/hooks/useDevice';
 
-type PropsType = {
-    className: string;
-    columnClassname: string;
-};
+import styles from './StaggeredLayout.module.scss';
+import classNames from 'classnames';
 
-function StaggeredLayout({ className, columnClassname, children }: PropsWithChildren<PropsType>) {
+function StaggeredLayout({ children }: PropsWithChildren<{}>) {
     const isLayoutInitializedRef = useRef(false);
     const { isMobile, isTablet } = useDevice();
 
@@ -51,11 +49,13 @@ function StaggeredLayout({ className, columnClassname, children }: PropsWithChil
     }
 
     return (
-        <div className={className}>
+        <div
+            className={classNames(styles.container, {
+                [styles.containerDesktop]: columnCount === 3,
+            })}
+        >
             {childrenInColumns.map((columnItems, i) => (
-                <div className={columnClassname} key={`column-${i}`}>
-                    {columnItems}
-                </div>
+                <div key={`column-${i}`}>{columnItems}</div>
             ))}
         </div>
     );
