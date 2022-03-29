@@ -12,7 +12,7 @@ $small-card-image-size-desktop: 164px;
     /* stylelint-disable-next-line order/order */
     @include not-desktop {
         &:not(:last-of-type) {
-            margin-bottom: $spacing-5;
+            margin-bottom: $spacing-7;
         }
     }
 }
