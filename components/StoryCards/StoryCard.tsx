@@ -30,7 +30,7 @@ function StoryCard({ story, size = 'small' }: Props) {
                     />
                 </a>
             </Link>
-            <div className={styles.content}>
+            <div className={classNames(styles.content, styles.noSpacingBottom)}>
                 {categories.length > 0 && (
                     <div className={styles.categories}>
                         <CategoriesList
@@ -40,7 +40,11 @@ function StoryCard({ story, size = 'small' }: Props) {
                         />
                     </div>
                 )}
-                <h2 className={classNames(styles.title, styles.titleLarger)}>
+                <h2
+                    className={classNames(styles.title, styles.titleLarger, {
+                        [styles.noSpacingBottom]: !subtitle && !showDate,
+                    })}
+                >
                     <Link href={`/${story.slug}`} locale={false} passHref>
                         <a className={styles.titleLink}>{title}</a>
                     </Link>

@@ -110,3 +110,8 @@ $small-card-image-size-desktop: 164px;
         grid-column: span 2;
     }
 }
+
+.noSpacingBottom {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
