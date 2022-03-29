@@ -62,13 +62,9 @@ $small-card-image-size-desktop: 164px;
 }
 
 .title {
-    font-weight: $font-weight-bold;
+    @include heading-2;
     margin-top: 0;
     margin-bottom: $spacing-2;
-}
-
-.titleSmaller {
-    @include ensure-max-text-height(3, $line-height-m);
 }
 
 .titleLarger {
