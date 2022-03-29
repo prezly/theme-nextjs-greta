@@ -6,13 +6,13 @@ $small-card-image-size-desktop: 164px;
     width: 100%;
 
     &:not(:last-of-type) {
-        margin-bottom: $spacing-7;
+        margin-bottom: $spacing-8;
     }
 
     /* stylelint-disable-next-line order/order */
-    @include desktop-up {
+    @include not-desktop {
         &:not(:last-of-type) {
-            margin-bottom: 0;
+            margin-bottom: $spacing-5;
         }
     }
 }
@@ -38,7 +38,6 @@ $small-card-image-size-desktop: 164px;
     }
 }
 
-.image,
 .placeholder {
     @include border-radius-s;
 }
@@ -49,6 +48,7 @@ $small-card-image-size-desktop: 164px;
 
 .content {
     padding: $spacing-5 0;
+    padding-top: ($spacing-1 + $spacing-2);
 
     @include mobile-only {
         padding-bottom: $spacing-3;
