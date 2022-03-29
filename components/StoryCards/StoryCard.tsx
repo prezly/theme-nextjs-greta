@@ -20,7 +20,7 @@ function StoryCard({ story, size = 'small' }: Props) {
     const { showDate, showSubtitle } = useThemeSettings();
 
     return (
-        <div className={classNames(styles.container, styles.medium)}>
+        <div className={classNames(styles.container)}>
             <Link href={`/${story.slug}`} locale={false} passHref>
                 <a className={styles.imageWrapper}>
                     <StoryImage
@@ -30,7 +30,7 @@ function StoryCard({ story, size = 'small' }: Props) {
                     />
                 </a>
             </Link>
-            <div className={classNames(styles.content, styles.noSpacingBottom)}>
+            <div className={classNames(styles.content)}>
                 {categories.length > 0 && (
                     <div className={styles.categories}>
                         <CategoriesList
@@ -41,7 +41,7 @@ function StoryCard({ story, size = 'small' }: Props) {
                     </div>
                 )}
                 <h2
-                    className={classNames(styles.title, styles.titleLarger, {
+                    className={classNames(styles.title, {
                         [styles.noSpacingBottom]: !subtitle && !showDate,
                     })}
                 >
