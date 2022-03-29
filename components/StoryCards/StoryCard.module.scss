@@ -63,6 +63,7 @@ $small-card-image-size-desktop: 164px;
 
 .title {
     @include heading-2;
+
     margin-top: 0;
     margin-bottom: $spacing-2;
 }
