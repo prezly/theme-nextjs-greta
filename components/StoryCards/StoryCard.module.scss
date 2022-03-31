@@ -2,22 +2,21 @@ $small-card-image-size: 230px;
 
 .container {
     position: relative;
+    width: 100%;
 
     &:not(:last-of-type) {
-        margin-bottom: $spacing-7;
+        margin-bottom: $spacing-8;
     }
 
     /* stylelint-disable-next-line order/order */
-    @include desktop-up {
+    @include mobile-only {
         &:not(:last-of-type) {
-            margin-bottom: 0;
+            margin-bottom: $spacing-7;
         }
     }
 }
 
 .imageWrapper {
-    @include border-radius-s;
-
     display: block;
     overflow: hidden;
     text-decoration: none;
@@ -34,17 +33,22 @@ $small-card-image-size: 230px;
     }
 }
 
-.image,
-.placeholder {
-    @include border-radius-s;
-}
-
 .placeholder > .image {
     border-radius: 0;
 }
 
 .content {
     padding: $spacing-5 0;
+    padding-top: ($spacing-1 + $spacing-2);
+    padding-bottom: 0;
+
+    @include mobile-only {
+        padding-bottom: $spacing-3;
+    }
+
+    @include tablet-only {
+        padding-right: $spacing-4;
+    }
 }
 
 .categories {
@@ -87,85 +91,7 @@ $small-card-image-size: 230px;
     color: $color-base-500;
 }
 
-.small {
-    @include tablet-up {
-        display: grid;
-        grid-template-columns: $small-card-image-size auto;
-        gap: 0 $spacing-4;
-        align-items: center;
-    }
-
-    .imageWrapper {
-        @include small-card-aspect-ratio;
-    }
-
-    .content {
-        @include tablet-up {
-            padding: 0;
-        }
-    }
-
-    .title {
-        @include tablet-up {
-            @include heading-3;
-            @include ensure-max-text-height(3, $line-height-m);
-
-            margin-bottom: $spacing-1;
-        }
-
-        @include desktop-up {
-            @include paragraph;
-            @include ensure-max-text-height(3, $line-height-s);
-        }
-    }
-
-    .subtitle {
-        @include tablet-up {
-            @include paragraph;
-            @include ensure-max-text-height(2, $line-height-s);
-        }
-    }
-}
-
-.medium,
-.big {
-    @include tablet-only {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        gap: 0 $spacing-4;
-
-        .content {
-            padding: 0;
-        }
-    }
-}
-
-.medium {
-    .imageWrapper {
-        @include medium-card-aspect-ratio;
-    }
-}
-
-.big {
-    .imageWrapper {
-        @include big-card-aspect-ratio;
-    }
-}
-
-@include tablet-only {
-    .medium + .small {
-        margin-top: $spacing-9;
-    }
-}
-
-@include desktop-up {
-    .medium {
-        grid-column: span 2;
-    }
-
-    .big,
-    .small {
-        grid-column: span 3;
-    }
+.noSpacingBottom {
+    padding-bottom: 0;
+    margin-bottom: 0;
 }

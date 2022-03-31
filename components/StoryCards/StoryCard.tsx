@@ -19,16 +19,8 @@ function StoryCard({ story, size = 'small' }: Props) {
     const { categories, title, subtitle } = story;
     const { showDate, showSubtitle } = useThemeSettings();
 
-    const HeadingTag = size === 'small' ? 'h3' : 'h2';
-
     return (
-        <div
-            className={classNames(styles.container, {
-                [styles.small]: size === 'small',
-                [styles.medium]: size === 'medium',
-                [styles.big]: size === 'big',
-            })}
-        >
+        <div className={classNames(styles.container)}>
             <Link href={`/${story.slug}`} locale={false} passHref>
                 <a className={styles.imageWrapper}>
                     <StoryImage
@@ -38,7 +30,7 @@ function StoryCard({ story, size = 'small' }: Props) {
                     />
                 </a>
             </Link>
-            <div className={styles.content}>
+            <div className={classNames(styles.content)}>
                 {categories.length > 0 && (
                     <div className={styles.categories}>
                         <CategoriesList
@@ -48,11 +40,15 @@ function StoryCard({ story, size = 'small' }: Props) {
                         />
                     </div>
                 )}
-                <HeadingTag className={styles.title}>
+                <h2
+                    className={classNames(styles.title, {
+                        [styles.noSpacingBottom]: !subtitle && !showDate,
+                    })}
+                >
                     <Link href={`/${story.slug}`} locale={false} passHref>
                         <a className={styles.titleLink}>{title}</a>
                     </Link>
-                </HeadingTag>
+                </h2>
 
                 {subtitle && showSubtitle && (
                     <p className={styles.subtitle}>

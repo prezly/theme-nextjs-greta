@@ -3,7 +3,7 @@ import translations from '@prezly/themes-intl-messages';
 import { useMemo } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { HighlightedStoryCard, StoryCard } from '@/components';
+import { HighlightedStoryCard, StaggeredLayout, StoryCard } from '@/components';
 import type { StoryWithImage } from 'types';
 
 import { useStoryCardLayout } from './lib';
@@ -62,11 +62,11 @@ function StoriesList({ stories, isCategoryList = false }: Props) {
                 </div>
             )}
             {restStories.length > 0 && (
-                <div className={styles.storiesContainer}>
+                <StaggeredLayout>
                     {restStories.map((story, index) => (
                         <StoryCard key={story.uuid} story={story} size={getStoryCardSize(index)} />
                     ))}
-                </div>
+                </StaggeredLayout>
             )}
         </>
     );
