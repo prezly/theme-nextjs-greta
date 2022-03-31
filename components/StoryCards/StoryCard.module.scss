@@ -1,5 +1,4 @@
-$small-card-image-size: 148px;
-$small-card-image-size-desktop: 164px;
+$small-card-image-size: 230px;
 
 .container {
     position: relative;
@@ -27,10 +26,6 @@ $small-card-image-size-desktop: 164px;
     display: block;
     overflow: hidden;
     text-decoration: none;
-
-    @include tablet-only {
-        height: 100%;
-    }
 
     @include desktop-up {
         .image {
@@ -68,6 +63,7 @@ $small-card-image-size-desktop: 164px;
     @include heading-2;
     @include ensure-max-text-height(3, $line-height-l);
 
+    font-weight: $font-weight-bold;
     margin-top: 0;
     margin-bottom: $spacing-2;
 }
