@@ -14,12 +14,6 @@ $small-card-image-size: 230px;
             margin-bottom: $spacing-7;
         }
     }
-
-    @include tablet-only {
-        .content {
-            padding-right: $spacing-4;
-        }
-    }
 }
 
 .imageWrapper {
@@ -50,6 +44,10 @@ $small-card-image-size: 230px;
 
     @include mobile-only {
         padding-bottom: $spacing-3;
+    }
+
+    @include tablet-only {
+        padding-right: $spacing-4;
     }
 }
 
