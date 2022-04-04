@@ -33,6 +33,10 @@ $small-card-image-size: 230px;
     }
 }
 
+.placeholder {
+   @include story-card-aspect-ratio;
+}
+
 .placeholder > .image {
     border-radius: 0;
 }
