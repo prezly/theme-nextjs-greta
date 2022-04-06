@@ -18,7 +18,6 @@
 }
 
 .imageWrapper {
-    @include border-radius-s;
     @include highlighted-card-aspect-ratio;
 
     display: block;
