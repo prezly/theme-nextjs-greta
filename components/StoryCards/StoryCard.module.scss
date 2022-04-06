@@ -34,7 +34,7 @@ $small-card-image-size: 230px;
 }
 
 .placeholder {
-   @include story-card-aspect-ratio;
+    @include story-card-aspect-ratio;
 }
 
 .placeholder > .image {
