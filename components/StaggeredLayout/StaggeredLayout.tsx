@@ -7,11 +7,11 @@ import { useDevice } from '@/hooks/useDevice';
 import styles from './StaggeredLayout.module.scss';
 
 function StaggeredLayout({ children }: PropsWithChildren<{}>) {
-    const isLayoutInitialized = useRef(false);
+    const isLayoutInitializedRef = useRef(false);
     const { isMobile, isTablet } = useDevice();
 
     useEffect(() => {
-        isLayoutInitialized.current = false;
+        isLayoutInitializedRef.current = false;
     }, [isMobile]);
 
     const columnCount = useMemo(() => {
@@ -20,7 +20,7 @@ function StaggeredLayout({ children }: PropsWithChildren<{}>) {
         }
 
         // Only use the calculated layout if we're not on mobile screen
-        isLayoutInitialized.current = true;
+        isLayoutInitializedRef.current = true;
 
         if (isTablet) {
             return 2;
@@ -48,7 +48,7 @@ function StaggeredLayout({ children }: PropsWithChildren<{}>) {
         return itemsCols;
     }, [children, columnCount]);
 
-    if (!isLayoutInitialized.current) {
+    if (!isLayoutInitializedRef.current) {
         return (
             <div
                 className={classNames({
