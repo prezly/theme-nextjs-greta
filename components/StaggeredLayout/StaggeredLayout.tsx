@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Children, useMemo, useRef } from 'react';
+import { Children, useEffect, useMemo, useRef } from 'react';
 import type { PropsWithChildren } from 'react';
 
 import { useDevice } from '@/hooks/useDevice';
@@ -7,8 +7,12 @@ import { useDevice } from '@/hooks/useDevice';
 import styles from './StaggeredLayout.module.scss';
 
 function StaggeredLayout({ children }: PropsWithChildren<{}>) {
-    const isLayoutInitializedRef = useRef(false);
+    const isLayoutInitialized = useRef(false);
     const { isMobile, isTablet } = useDevice();
+
+    useEffect(() => {
+        isLayoutInitialized.current = false;
+    }, [isMobile]);
 
     const columnCount = useMemo(() => {
         if (isMobile) {
@@ -16,7 +20,7 @@ function StaggeredLayout({ children }: PropsWithChildren<{}>) {
         }
 
         // Only use the calculated layout if we're not on mobile screen
-        isLayoutInitializedRef.current = true;
+        isLayoutInitialized.current = true;
 
         if (isTablet) {
             return 2;
@@ -44,8 +48,16 @@ function StaggeredLayout({ children }: PropsWithChildren<{}>) {
         return itemsCols;
     }, [children, columnCount]);
 
-    if (!isLayoutInitializedRef.current) {
-        return <div>{children}</div>;
+    if (!isLayoutInitialized.current) {
+        return (
+            <div
+                className={classNames({
+                    [styles.containerMobile]: isMobile,
+                })}
+            >
+                {children}
+            </div>
+        );
     }
 
     return (
