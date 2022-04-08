@@ -2,9 +2,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: $grid-gutter-tablet;
+
+    &.containerDesktop {
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: $grid-gutter-desktop;
+    }
 }
 
-.containerDesktop {
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: $grid-gutter-desktop;
-}

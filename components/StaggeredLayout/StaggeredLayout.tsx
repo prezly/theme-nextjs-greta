@@ -12,6 +12,7 @@ function StaggeredLayout({ children }: PropsWithChildren<{}>) {
 
     const columnCount = useMemo(() => {
         if (isMobile) {
+            isLayoutInitializedRef.current = false;
             return 0;
         }
 
