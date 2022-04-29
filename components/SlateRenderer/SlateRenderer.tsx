@@ -14,11 +14,10 @@ import {
     isParagraphNode,
     isPlaceholderNode,
     isQuoteNode,
+    isStoryBookmarkNode,
 } from '@prezly/slate-types';
 import { useEffect } from 'react';
-import '@prezly/content-renderer-react-js/styles.css';
 
-import { ContactCard } from '@/components';
 import {
     Heading,
     Html,
@@ -30,7 +29,7 @@ import {
     Quote,
 } from '@/components/RichText';
 
-import { Attachment, Gallery, Image, Placeholder } from './components';
+import { Attachment, ContactCard, Gallery, Image, Placeholder, StoryBookmark } from './components';
 
 import styles from './SlateRenderer.module.scss';
 
@@ -49,27 +48,9 @@ export default function SlateRenderer({ nodes }: Props) {
 
     return (
         <div className={styles.renderer}>
-            <Renderer nodes={nodes}>
+            <Renderer nodes={nodes} defaultComponents>
                 <Component match={isAttachmentNode} component={Attachment} />
-                <Component
-                    match={isContactNode}
-                    component={({ node }) => (
-                        <ContactCard
-                            className={styles.contactCard}
-                            contact={node.contact}
-                            renderAvatar={({ className }) =>
-                                node.contact.avatar_url && (
-                                    // eslint-disable-next-line @next/next/no-img-element
-                                    <img
-                                        className={className}
-                                        src={node.contact.avatar_url}
-                                        alt={node.contact.name}
-                                    />
-                                )
-                            }
-                        />
-                    )}
-                />
+                <Component match={isContactNode} component={ContactCard} />
                 <Component match={isGalleryNode} component={Gallery} />
                 <Component match={isGalleryNode} component={Gallery} />
                 <Component match={isHeadingNode} component={Heading} />
@@ -82,6 +63,7 @@ export default function SlateRenderer({ nodes }: Props) {
                 <Component match={isParagraphNode} component={Paragraph} />
                 <Component match={isPlaceholderNode} component={Placeholder} />
                 <Component match={isQuoteNode} component={Quote} />
+                <Component match={isStoryBookmarkNode} component={StoryBookmark} />
             </Renderer>
         </div>
     );
