@@ -16,3 +16,4 @@ export * from './StoryCards';
 export { default as StoryImage } from './StoryImage';
 export { default as StoryPublicationDate } from './StoryPublicationDate';
 export { default as StoryStickyBar } from './StoryStickyBar';
+export { default as ScrollToTopButton } from './ScrollToTopButton';
