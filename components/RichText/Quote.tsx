@@ -1,5 +1,4 @@
-import type { QuoteNode } from '@prezly/slate-types';
-import { Alignment } from '@prezly/slate-types';
+import { QuoteNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 
@@ -10,15 +9,15 @@ interface Props {
 }
 
 export function Quote({ node, children }: PropsWithChildren<Props>) {
-    const alignment = node.align ?? Alignment.LEFT;
+    const alignment = node.align ?? QuoteNode.Alignment.LEFT;
 
     return (
         <blockquote className={styles.container}>
             <div
                 className={classNames(styles.content, {
-                    [styles.alignLeft]: alignment === Alignment.LEFT,
-                    [styles.alignCenter]: alignment === Alignment.CENTER,
-                    [styles.alignRight]: alignment === Alignment.RIGHT,
+                    [styles.alignLeft]: alignment === QuoteNode.Alignment.LEFT,
+                    [styles.alignCenter]: alignment === QuoteNode.Alignment.CENTER,
+                    [styles.alignRight]: alignment === QuoteNode.Alignment.RIGHT,
                 })}
             >
                 {children}

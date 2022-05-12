@@ -1,5 +1,5 @@
 import { Elements } from '@prezly/content-renderer-react-js';
-import type { StoryBookmarkNode } from '@prezly/slate-types';
+import type { StoryBookmarkNode } from '@prezly/story-content-format';
 import { useEmbedStory } from '@prezly/theme-kit-nextjs';
 
 interface Props {
@@ -13,5 +13,5 @@ export function StoryBookmark({ node }: Props) {
         return null;
     }
 
-    return <Elements.StoryBookmark node={node} story={embedStory} />;
+    return <Elements.StoryBookmark node={node} storyOEmbedInfo={embedStory.oembed} />;
 }
