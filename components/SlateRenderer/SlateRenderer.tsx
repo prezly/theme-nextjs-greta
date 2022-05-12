@@ -63,7 +63,10 @@ export default function SlateRenderer({ nodes }: Props) {
                 <Component match={ParagraphNode.isParagraphNode} component={Paragraph} />
                 <Component match={PlaceholderNode.isPlaceholderNode} component={Placeholder} />
                 <Component match={QuoteNode.isQuoteNode} component={Quote} />
-                <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={StoryBookmark} />
+                <Component
+                    match={StoryBookmarkNode.isStoryBookmarkNode}
+                    component={StoryBookmark}
+                />
             </Renderer>
         </div>
     );
