@@ -32,7 +32,6 @@
     "@prezly/story-content-format": "^0.55.4",
     "@prezly/theme-kit-nextjs": "^1.8.0",
     "@prezly/themes-intl-messages": "^1.10.0",
-    "@prezly/uploadcare": "^2.3.2",
     "@prezly/uploadcare-image": "^0.3.1",
     "@sentry/nextjs": "^6.18.2",
     "algoliasearch": "^4.11.0",
