@@ -1,4 +1,4 @@
-import { ListNode } from '@prezly/story-content-format';
+import { Alignment, ListNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 
@@ -12,9 +12,9 @@ export function List({ node, children }: PropsWithChildren<Props>) {
     const className = classNames({
         [styles.numberedList]: node.type === ListNode.Type.NUMBERED,
         [styles.orderedList]: node.type === ListNode.Type.BULLETED,
-        [styles.alignLeft]: node.align === ListNode.Alignment.LEFT,
-        [styles.alignCenter]: node.align === ListNode.Alignment.CENTER,
-        [styles.alignRight]: node.align === ListNode.Alignment.RIGHT,
+        [styles.alignLeft]: node.align === Alignment.LEFT,
+        [styles.alignCenter]: node.align === Alignment.CENTER,
+        [styles.alignRight]: node.align === Alignment.RIGHT,
     });
 
     if (node.type === ListNode.Type.NUMBERED) {

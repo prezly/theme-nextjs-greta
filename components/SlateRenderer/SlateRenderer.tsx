@@ -52,7 +52,6 @@ export default function SlateRenderer({ nodes }: Props) {
                 <Component match={AttachmentNode.isAttachmentNode} component={Attachment} />
                 <Component match={ContactNode.isContactNode} component={ContactCard} />
                 <Component match={GalleryNode.isGalleryNode} component={Gallery} />
-                <Component match={GalleryNode.isGalleryNode} component={Gallery} />
                 <Component match={HeadingNode.isHeadingNode} component={Heading} />
                 <Component match={HtmlNode.isHtmlNode} component={Html} />
                 <Component match={ImageNode.isImageNode} component={Image} />
