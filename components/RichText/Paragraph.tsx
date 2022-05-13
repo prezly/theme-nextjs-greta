@@ -1,5 +1,4 @@
-import type { ParagraphNode } from '@prezly/slate-types';
-import { Alignment } from '@prezly/slate-types';
+import { ParagraphNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 
@@ -14,9 +13,9 @@ export function Paragraph({ node, children }: Props) {
     return (
         <p
             className={classNames(styles.paragraph, {
-                [styles.alignLeft]: node.align === Alignment.LEFT,
-                [styles.alignCenter]: node.align === Alignment.CENTER,
-                [styles.alignRight]: node.align === Alignment.RIGHT,
+                [styles.alignLeft]: node.align === ParagraphNode.Alignment.LEFT,
+                [styles.alignCenter]: node.align === ParagraphNode.Alignment.CENTER,
+                [styles.alignRight]: node.align === ParagraphNode.Alignment.RIGHT,
             })}
         >
             {children}
