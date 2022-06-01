@@ -1,0 +1,19 @@
+{
+    "extends": [
+        "config:base"
+    ],
+    "enabledManagers": ["npm"],
+    "reviewers": ["oleg-semyonov"],
+    "packageRules": [
+        {
+            "packagePatterns": ["*"],
+            "excludePackagePatterns": ["^@prezly"],
+            "enabled": false
+        },
+        {
+            "matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
+            "groupName": "React",
+            "allowedVersions": "<18"
+        }
+    ]
+}
