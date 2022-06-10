@@ -22,7 +22,7 @@ if (SENTRY_DSN) {
         ignoreErrors: ['Object Not Found Matching Id'],
         // Attach theme tag to each event
         initialScope: (scope) => {
-            scope.setTags({ prezly_theme: 'bea' });
+            scope.setTags({ prezly_theme: 'greta' });
             return scope;
         },
     });
