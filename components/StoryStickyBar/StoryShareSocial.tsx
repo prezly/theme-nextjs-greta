@@ -1,6 +1,6 @@
 import translations from '@prezly/themes-intl-messages';
+import { SocialShareButton } from '@prezly/themes-ui-components';
 import { FormattedMessage } from 'react-intl';
-import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
 
 import { IconFacebook, IconLinkedin, IconTwitter } from '@/icons';
 
@@ -16,15 +16,15 @@ function StoryShareSocial({ url }: Props) {
             <span className={styles.cta}>
                 <FormattedMessage {...translations.actions.share} />
             </span>
-            <TwitterShareButton className={styles.button} url={url}>
+            <SocialShareButton network="twitter" className={styles.button} url={url}>
                 <IconTwitter className={styles.icon} />
-            </TwitterShareButton>
-            <FacebookShareButton className={styles.button} url={url}>
+            </SocialShareButton>
+            <SocialShareButton network="facebook" className={styles.button} url={url}>
                 <IconFacebook className={styles.icon} />
-            </FacebookShareButton>
-            <LinkedinShareButton className={styles.button} url={url}>
+            </SocialShareButton>
+            <SocialShareButton network="linkedin" className={styles.button} url={url}>
                 <IconLinkedin className={styles.icon} />
-            </LinkedinShareButton>
+            </SocialShareButton>
         </div>
     );
 }
