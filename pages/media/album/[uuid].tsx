@@ -8,7 +8,7 @@ import type { FunctionComponent } from 'react';
 import { importMessages, isTrackingEnabled } from '@/utils';
 import type { BasePageProps } from 'types';
 
-const Gallery = dynamic(() => import('@/modules/Gallery'), { ssr: true });
+const Gallery = dynamic(() => import('@/modules/Gallery'), { ssr: false });
 
 type Props = BasePageProps & GalleryAlbumPageProps;
 
