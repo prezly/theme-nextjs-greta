@@ -57,6 +57,8 @@ function CategoriesList({ filteredCategories }: Props) {
                         <FormattedMessage {...translations.search.viewMore} />
                     )}
                     <IconSearchCaret
+                        width={12}
+                        height={12}
                         className={classNames(styles.caret, {
                             [styles.caretOpen]: showAllCategories,
                         })}

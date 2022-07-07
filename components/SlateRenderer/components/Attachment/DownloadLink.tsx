@@ -14,7 +14,7 @@ function DownloadLink({ className }: Props) {
     return (
         <div className={classNames(styles.link, className)}>
             <FormattedMessage {...translations.actions.download} />
-            <IconDownload className={styles.icon} />
+            <IconDownload width={16} height={16} className={styles.icon} />
         </div>
     );
 }
