@@ -64,7 +64,6 @@ $small-card-image-size: 230px;
 
 .title {
     @include heading-2;
-    @include ensure-max-text-height(3, $line-height-l);
 
     font-weight: $font-weight-bold;
     margin-top: 0;
@@ -83,7 +82,6 @@ $small-card-image-size: 230px;
 
 .subtitle {
     @include heading-3;
-    @include ensure-max-text-height(2, $line-height-m);
 
     margin: 0 auto $spacing-2;
     font-weight: $font-weight-regular;
