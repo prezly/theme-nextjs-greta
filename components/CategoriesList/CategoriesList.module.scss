@@ -13,9 +13,12 @@
 
     &:hover,
     &:focus {
-        span {
-            text-decoration: underline;
-        }
+        text-decoration: none !important;
+    }
+
+    &:hover span,
+    &:focus span {
+        text-decoration: none !important;
     }
 
     &:not(:last-child) {

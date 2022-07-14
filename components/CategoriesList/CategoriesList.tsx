@@ -54,7 +54,11 @@ function CategoriesList({ categories, showAllCategories = false, isStatic }: Pro
     return (
         <>
             {visibleCategories.map((category) => (
-                <CategoryLink key={category.id} category={category} />
+                <CategoryLink
+                    className={styles.categoryLink}
+                    key={category.id}
+                    category={category}
+                />
             ))}
             {hiddenCategoriesCount > 0 &&
                 (isStatic ? (
