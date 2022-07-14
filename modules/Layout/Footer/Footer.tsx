@@ -38,7 +38,7 @@ function Footer() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <LogoPrezly />
+                                <LogoPrezly height={20} className={styles.prezlyLogo} />
                             </a>
                         </div>
                     )}
