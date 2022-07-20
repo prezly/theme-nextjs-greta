@@ -54,7 +54,7 @@
     @include text-label;
 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 
     .icon {
         margin-right: $spacing-1;
