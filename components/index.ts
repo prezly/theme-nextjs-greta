@@ -9,4 +9,4 @@ export { default as SlateRenderer } from './SlateRenderer';
 export { default as StaggeredLayout } from './StaggeredLayout';
 export * from './StoryCards';
 export { default as StoryImage } from './StoryImage';
-export { default as StoryStickyBar } from './StoryStickyBar';
+export { default as StoryLinks } from './StoryLinks';
