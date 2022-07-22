@@ -21,6 +21,16 @@
     }
 }
 
+@mixin medium-card-aspect-ratio {
+    @include base-card-aspect-ratio;
+
+    @supports not (aspect-ratio: auto) {
+        @include desktop-up {
+            height: 340px;
+        }
+    }
+}
+
 @mixin story-card-aspect-ratio {
     aspect-ratio: 1 / 1;
 
