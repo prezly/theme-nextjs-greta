@@ -32,13 +32,12 @@ function StoryCard({ story, size = 'small' }: Props) {
             </Link>
             <div className={classNames(styles.content)}>
                 {categories.length > 0 && (
-                    <div className={styles.categories}>
-                        <CategoriesList
-                            categories={categories}
-                            showAllCategories={size !== 'small'}
-                            isStatic
-                        />
-                    </div>
+                    <CategoriesList
+                        categories={categories}
+                        className={styles.categories}
+                        showAllCategories={size !== 'small'}
+                        isStatic
+                    />
                 )}
                 <h2
                     className={classNames(styles.title, {
