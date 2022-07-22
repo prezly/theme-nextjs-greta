@@ -1,6 +1,7 @@
 import type { Category } from '@prezly/sdk';
 import type { AlgoliaCategoryRef } from '@prezly/theme-kit-nextjs';
 import { getLocalizedCategoryData, useCurrentLocale } from '@prezly/theme-kit-nextjs';
+import classNames from 'classnames';
 import { useMemo, useState } from 'react';
 
 import { CategoryLink } from '@/components';
@@ -11,11 +12,12 @@ type Props = {
     categories: Category[] | AlgoliaCategoryRef[];
     showAllCategories?: boolean;
     isStatic?: boolean;
+    className?: string;
 };
 
 const MAX_CATEGORIES_CHARACTER_LENGTH = 20;
 
-function CategoriesList({ categories, showAllCategories = false, isStatic }: Props) {
+function CategoriesList({ categories, showAllCategories = false, isStatic, className }: Props) {
     const [showExtraCategories, setShowExtraCategories] = useState(showAllCategories);
     const currentLocale = useCurrentLocale();
 
@@ -52,7 +54,7 @@ function CategoriesList({ categories, showAllCategories = false, isStatic }: Pro
     }, [categories, showExtraCategories, currentLocale]);
 
     return (
-        <>
+        <div className={classNames(styles.categoriesList, className)}>
             {visibleCategories.map((category) => (
                 <CategoryLink
                     className={styles.categoryLink}
@@ -74,7 +76,7 @@ function CategoriesList({ categories, showAllCategories = false, isStatic }: Pro
                         <span>+{hiddenCategoriesCount}</span>
                     </span>
                 ))}
-        </>
+        </div>
     );
 }
 
