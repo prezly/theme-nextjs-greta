@@ -23,7 +23,7 @@ function HitComponent({ hit }: Props) {
     const { showDate, showSubtitle } = useThemeSettings();
 
     return (
-        <div className={classNames(cardStyles.container, cardStyles.small)}>
+        <div className={cardStyles.small}>
             <Link href={`/${story.slug}`} locale={false} passHref>
                 <a className={cardStyles.imageWrapper}>
                     <StoryImage
