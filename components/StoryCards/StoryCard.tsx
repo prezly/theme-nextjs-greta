@@ -12,10 +12,9 @@ import styles from './StoryCard.module.scss';
 
 type Props = {
     story: StoryWithImage;
-    size?: 'small' | 'medium' | 'big';
 };
 
-function StoryCard({ story, size = 'small' }: Props) {
+function StoryCard({ story }: Props) {
     const { categories, title, subtitle } = story;
     const { showDate, showSubtitle } = useThemeSettings();
 
@@ -25,6 +24,7 @@ function StoryCard({ story, size = 'small' }: Props) {
                 <a className={styles.imageWrapper}>
                     <StoryImage
                         story={story}
+                        size="medium"
                         className={styles.image}
                         placeholderClassName={styles.placeholder}
                     />
@@ -35,7 +35,7 @@ function StoryCard({ story, size = 'small' }: Props) {
                     <CategoriesList
                         categories={categories}
                         className={styles.categories}
-                        showAllCategories={size !== 'small'}
+                        showAllCategories
                         isStatic
                     />
                 )}
