@@ -6,8 +6,6 @@ import { FormattedMessage } from 'react-intl';
 import { HighlightedStoryCard, StaggeredLayout, StoryCard } from '@/components';
 import type { StoryWithImage } from 'types';
 
-import { useStoryCardLayout } from './lib';
-
 import Illustration from '@/public/images/no-stories-illustration.svg';
 
 import styles from './StoriesList.module.scss';
@@ -32,8 +30,6 @@ function StoriesList({ stories, isCategoryList = false }: Props) {
 
         return [stories.slice(0, 1), stories.slice(1)];
     }, [isCategoryList, stories]);
-
-    const getStoryCardSize = useStoryCardLayout(isCategoryList, restStories.length);
 
     if (!highlightedStories.length && !restStories.length) {
         return (
@@ -63,8 +59,8 @@ function StoriesList({ stories, isCategoryList = false }: Props) {
             )}
             {restStories.length > 0 && (
                 <StaggeredLayout>
-                    {restStories.map((story, index) => (
-                        <StoryCard key={story.uuid} story={story} size={getStoryCardSize(index)} />
+                    {restStories.map((story) => (
+                        <StoryCard key={story.uuid} story={story} />
                     ))}
                 </StaggeredLayout>
             )}
