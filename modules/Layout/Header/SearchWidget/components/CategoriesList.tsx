@@ -1,12 +1,8 @@
 import type { Category } from '@prezly/sdk';
 import translations from '@prezly/themes-intl-messages';
-import { Button } from '@prezly/themes-ui-components';
-import classNames from 'classnames';
+import { Button, CategoryLink } from '@prezly/themes-ui-components';
 import { useMemo, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
-
-import { CategoryLink } from '@/components';
-import { IconSearchCaret } from '@/icons';
 
 import styles from './MainPanel.module.scss';
 
@@ -40,29 +36,18 @@ function CategoriesList({ filteredCategories }: Props) {
             <ul className={styles.list}>
                 {displayedCategories.map((category) => (
                     <li key={category.id} className={styles.listItem}>
-                        <CategoryLink category={category} className={styles.categoryLink} />
+                        <CategoryLink category={category} />
                     </li>
                 ))}
             </ul>
 
             {filteredCategories.length > INITIAL_ITEMS_SHOWN && (
-                <Button
-                    onClick={toggleCategories}
-                    variation="navigation"
-                    className={classNames(styles.link, styles.viewMoreCategoriesLink)}
-                >
+                <Button onClick={toggleCategories} variation="navigation" className={styles.link}>
                     {showAllCategories ? (
                         <FormattedMessage {...translations.search.viewLess} />
                     ) : (
                         <FormattedMessage {...translations.search.viewMore} />
                     )}
-                    <IconSearchCaret
-                        width={12}
-                        height={12}
-                        className={classNames(styles.caret, {
-                            [styles.caretOpen]: showAllCategories,
-                        })}
-                    />
                 </Button>
             )}
         </>
