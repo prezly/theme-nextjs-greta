@@ -11,7 +11,6 @@ import Hit from './Hit';
 
 import styles from './Results.module.scss';
 import containerStyles from '@/modules/InfiniteStories/InfiniteStories.module.scss';
-import listStyles from '@/modules/InfiniteStories/StoriesList.module.scss';
 
 type SearchHit = HitType<{ attributes: AlgoliaStory }>;
 
@@ -21,7 +20,7 @@ function Results({ hits, hasMore, refineNext }: InfiniteHitsProvided<SearchHit>)
 
     return (
         <div className={classNames(containerStyles.container, styles.container)}>
-            <div className={classNames(listStyles.storiesContainer, styles.list)}>
+            <div className={styles.list}>
                 {!hits.length && (
                     <p className={styles.fallbackText}>
                         {formatMessage(
