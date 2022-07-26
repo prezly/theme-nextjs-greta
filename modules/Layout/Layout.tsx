@@ -27,7 +27,7 @@ const CookieConsentBar = dynamic(() => import('./CookieConsentBar'), {
 });
 
 const Header = dynamic(() => import('./Header'), {
-    ssr: false,
+    ssr: true,
 });
 
 function Layout({ children, description, imageUrl, title, hasError }: PropsWithChildren<Props>) {
