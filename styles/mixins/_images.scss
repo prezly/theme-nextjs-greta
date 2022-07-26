@@ -46,3 +46,17 @@
         }
     }
 }
+
+@mixin small-card-aspect-ratio {
+    @include base-card-aspect-ratio;
+
+    @supports not (aspect-ratio: auto) {
+        @include tablet-up {
+            height: 320px;
+        }
+
+        @include desktop-up {
+            height: 340px;
+        }
+    }
+}

@@ -116,3 +116,55 @@ $small-card-image-size: 230px;
     text-decoration: none;
     color: $color-base-700;
 }
+
+.small {
+    @include desktop-up {
+        display: grid;
+        grid-template-columns: $small-card-image-size auto;
+        gap: 0 $spacing-4;
+        align-items: center;
+    }
+
+    .imageWrapper {
+        @include small-card-aspect-ratio;
+    }
+
+    .content {
+        @include desktop-up {
+            padding: 0;
+        }
+    }
+
+    .title {
+        @include desktop-up {
+            @include heading-3;
+            @include ensure-max-text-height(3, $line-height-m);
+
+            margin-bottom: 0;
+        }
+
+        @include desktop-up {
+            @include paragraph;
+            @include ensure-max-text-height(3, $line-height-s);
+        }
+    }
+
+    .date {
+        @include desktop-up {
+            margin-top: $spacing-1;
+        }
+    }
+
+    .title.noCategories,
+    .title.noDate {
+        @include desktop-up {
+            @include ensure-max-text-height(4, $line-height-s);
+        }
+    }
+
+    .title.noDateAndCategories {
+        @include desktop-up {
+            @include ensure-max-text-height(5, $line-height-s);
+        }
+    }
+}
