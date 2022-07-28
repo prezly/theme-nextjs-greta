@@ -108,6 +108,31 @@
     }
 }
 
+.listContainer {
+    display: flex;
+
+    .numberedList,
+    .bulletedList {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    &.alignLeft {
+        text-align: left;
+        justify-content: flex-start;
+    }
+
+    &.alignCenter {
+        text-align: left;
+        justify-content: center;
+    }
+
+    &.alignRight {
+        text-align: right;
+        justify-content: flex-end;
+    }
+}
+
 .listItem,
 .htmlContent li {
     @include paragraph;
@@ -118,4 +143,23 @@
     text-indent: 0;
     border-collapse: collapse;
     border-color: inherit;
+}
+
+.htmlContent blockquote {
+    @include border-radius-m;
+
+    position: relative;
+    margin: $spacing-6 auto;
+    padding: $spacing-4 $spacing-6;
+    background: $color-base-50;
+
+    &::before {
+        content: "";
+        border-left: 2px solid $color-base-400;
+        padding-left: $spacing-4;
+        position: absolute;
+        top: $spacing-3;
+        bottom: $spacing-3;
+        left: $spacing-3;
+    }
 }
