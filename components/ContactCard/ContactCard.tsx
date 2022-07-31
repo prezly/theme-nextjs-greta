@@ -29,11 +29,16 @@ function ContactCard({ className, contact, isCompact = false, renderAvatar }: Pr
                 [styles.compact]: isCompact || device.isMobile,
             })}
         >
-            {renderAvatar({ className: styles.avatar })}
+            
             <div className={styles.content}>
+                <div className={styles.contentTitle}>
+                {renderAvatar({ className: styles.avatar })}
+                <div>
                 <h4 className={styles.name}>{name}</h4>
                 {subtitle && <h5 className={styles.position}>{subtitle}</h5>}
-
+                </div>
+                </div>
+                
                 <div className={styles.links}>
                     {email && (
                         <a href={`mailto:${email}`} className={styles.link}>
