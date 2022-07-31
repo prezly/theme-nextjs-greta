@@ -11,7 +11,7 @@
 }
 
 .contetTitle {
-    display:flex;
+    display: flex;
 }
 
 .name {
@@ -64,7 +64,6 @@
     display: flex;
     padding: $spacing-4;
     background: transparent;
-    border: none;
     overflow: hidden;
 
     /* stylelint-disable max-nesting-depth */
@@ -78,7 +77,7 @@
         }
 
         .contentTitle {
-            display:block;
+            display: block;
         }
 
         .links {
@@ -96,5 +95,4 @@
         }
     }
     /* stylelint-enable max-nesting-depth */
-
 }
