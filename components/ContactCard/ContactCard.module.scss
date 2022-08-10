@@ -62,7 +62,6 @@
     white-space: nowrap;
     font-weight: $font-weight-bold;
     font-size: $font-size-labels;
-    color: $color-blue-500;
 }
 
 .socials {
@@ -75,7 +74,6 @@
     height: 0.9rem;
     flex-shrink: 0;
     margin-right: $spacing-1;
-    color: $color-blue-500;
 }
 
 .container {
@@ -87,8 +85,6 @@
     // This class applies mobile styling but can also be forced through props.
     // The component will apply this class automatically when on mobile screen.
     &.compact {
-
-        // margin-bottom: -70px;
         .avatar {
             margin-bottom: $spacing-3;
         }
