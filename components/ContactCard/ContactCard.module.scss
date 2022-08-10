@@ -48,7 +48,7 @@
 .link {
     @include text-small;
     @include link-primary;
-    
+
     display: flex;
     align-items: center;
     margin-right: $spacing-4;
