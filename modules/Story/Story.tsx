@@ -52,9 +52,7 @@ function Story({ story }: Props) {
                             <StoryPublicationDate story={story} />
                         </p>
                     )}
-                    <StoryLinks
-                        url={links.short || links.newsroom_view || document.location.href}
-                    />
+                    <StoryLinks url={links.short || links.newsroom_view} />
                     {headerImage && (
                         <Image
                             alt=""
