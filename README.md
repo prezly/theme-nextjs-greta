@@ -91,7 +91,7 @@ Everyone is welcome to contribute to this project. Feel free to open an issue if
 
 ### License
 
-Prezly Bea Theme is [MIT licensed](LICENSE).
+Prezly Greta Theme is [MIT licensed](LICENSE).
 
 ---
 
