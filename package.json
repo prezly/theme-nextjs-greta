@@ -1,6 +1,6 @@
 {
   "name": "theme-nextjs-greta",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "engines": {
     "node": "^16.x",
     "npm": "^8.x"
@@ -71,5 +71,5 @@
     "stylelint": "14.10.0",
     "typescript": "4.7.4"
   },
-  "license": "GNU GPL v3"
+  "license": "MIT"
 }
