@@ -66,6 +66,10 @@
 
 .socials {
     display: flex;
+
+    .link:last-child {
+        margin-right: 0;
+    }
 }
 
 .icon {
