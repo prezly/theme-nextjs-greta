@@ -34,7 +34,7 @@ function Boilerplate() {
             <div className="container">
                 <div className={styles.columns}>
                     {hasAboutInformation && (
-                        <div className={styles.aboutUs}>
+                        <div>
                             <h2 className={styles.heading}>
                                 <FormattedMessage
                                     {...translations.boilerplate.title}
