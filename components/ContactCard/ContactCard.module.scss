@@ -6,7 +6,7 @@
 }
 
 .contentTitle {
-    @include tablet-only {
+    @include tablet-up {
         display: flex;
     }
 }
@@ -39,8 +39,9 @@
 .primaryContacts {
     margin: 0 auto $spacing-3;
 
-    @include tablet-only {
+    @include tablet-up {
         display: flex;
+        flex-wrap: wrap;
         margin-bottom: 0;
     }
 }
@@ -58,8 +59,7 @@
 
 .linkText {
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: break-word;
     font-weight: $font-weight-bold;
     font-size: $font-size-labels;
 }
@@ -67,6 +67,9 @@
 .socials {
     display: flex;
 
+    .link:last-child {
+        margin-right: 0;
+    }
 }
 
 .icon {
@@ -93,7 +96,6 @@
             display: block;
             margin-bottom: 0;
         }
-
     }
 
     /* stylelint-enable max-nesting-depth */
