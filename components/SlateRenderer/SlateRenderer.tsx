@@ -29,7 +29,7 @@ import {
     Quote,
 } from '@/components/RichText';
 
-import { Attachment, ContactCard, Gallery, Image, Variable, StoryBookmark } from './components';
+import { Attachment, ContactCard, Gallery, Image, StoryBookmark, Variable } from './components';
 
 import styles from './SlateRenderer.module.scss';
 
