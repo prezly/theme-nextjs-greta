@@ -12,9 +12,9 @@ import {
     ListItemTextNode,
     ListNode,
     ParagraphNode,
-    PlaceholderNode,
     QuoteNode,
     StoryBookmarkNode,
+    VariableNode,
 } from '@prezly/story-content-format';
 import { useEffect } from 'react';
 
@@ -29,7 +29,7 @@ import {
     Quote,
 } from '@/components/RichText';
 
-import { Attachment, ContactCard, Gallery, Image, Placeholder, StoryBookmark } from './components';
+import { Attachment, ContactCard, Gallery, Image, Variable, StoryBookmark } from './components';
 
 import styles from './SlateRenderer.module.scss';
 
@@ -60,12 +60,12 @@ export default function SlateRenderer({ nodes }: Props) {
                 <Component match={ListItemNode.isListItemNode} component={ListItem} />
                 <Component match={ListItemTextNode.isListItemTextNode} component={ListItemText} />
                 <Component match={ParagraphNode.isParagraphNode} component={Paragraph} />
-                <Component match={PlaceholderNode.isPlaceholderNode} component={Placeholder} />
                 <Component match={QuoteNode.isQuoteNode} component={Quote} />
                 <Component
                     match={StoryBookmarkNode.isStoryBookmarkNode}
                     component={StoryBookmark}
                 />
+                <Component match={VariableNode.isVariableNode} component={Variable} />
             </Renderer>
         </div>
     );
