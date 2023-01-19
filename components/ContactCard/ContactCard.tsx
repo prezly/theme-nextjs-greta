@@ -6,30 +6,32 @@ import {
     IconPhone,
     IconTwitter,
 } from '@prezly/icons';
+import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 
 import { useDevice } from '@/hooks';
 
-import type { Contact } from './types';
+import type { ContactInfo } from './types';
 import { getSocialHandles } from './utils';
 
 import styles from './ContactCard.module.scss';
 
 interface Props {
     className?: string;
-    contact: Contact;
+    contactInfo: ContactInfo;
     isCompact?: boolean;
     renderAvatar: ({ className }: { className: string }) => ReactNode;
+    uuid: ContactNode['uuid'];
 }
-function ContactCard({ className, contact, isCompact = false, renderAvatar }: Props) {
+function ContactCard({ className, contactInfo, isCompact = false, renderAvatar, uuid }: Props) {
     const device = useDevice();
-    const { name, description, company, email, phone, mobile, website } = contact;
-    const { facebook, twitter } = getSocialHandles(contact);
+    const { name, description, company, email, phone, mobile, website } = contactInfo;
+    const { facebook, twitter } = getSocialHandles(contactInfo);
     const subtitle = description && company ? `${description}, ${company}` : description;
     return (
         <div
-            id={`contact-${contact.uuid}`}
+            id={`contact-${uuid}`}
             className={classNames(styles.container, className, {
                 [styles.compact]: isCompact || device.isMobile,
             })}
