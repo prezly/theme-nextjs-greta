@@ -6,6 +6,7 @@ import {
     IconPhone,
     IconTwitter,
 } from '@prezly/icons';
+import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 
@@ -15,7 +16,6 @@ import type { ContactInfo } from './types';
 import { getSocialHandles } from './utils';
 
 import styles from './ContactCard.module.scss';
-import { ContactNode } from '@prezly/story-content-format';
 
 interface Props {
     className?: string;
