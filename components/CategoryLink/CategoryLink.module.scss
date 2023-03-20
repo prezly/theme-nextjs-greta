@@ -6,13 +6,6 @@
     text-decoration: none;
     cursor: pointer;
 
-    &:hover,
-    &:focus {
-        span {
-            text-decoration: underline;
-        }
-    }
-
     &:not(:last-child) {
         &::after {
             content: ",";

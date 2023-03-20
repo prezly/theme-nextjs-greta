@@ -1,9 +1,9 @@
 import type { Category } from '@prezly/sdk';
 import translations from '@prezly/themes-intl-messages';
-import { CategoryLink } from '@prezly/themes-ui-components';
 import { useMemo, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import { CategoryLink } from '@/components';
 import { Button } from '@/ui';
 
 import styles from './MainPanel.module.scss';
