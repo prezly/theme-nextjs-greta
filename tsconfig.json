@@ -29,7 +29,8 @@
       "@/modules/*": ["modules/*"],
       "@/public/*": ["public/*"],
       "@/utils": ["utils/"],
-      "@/utils/*": ["utils/*"]
+      "@/utils/*": ["utils/*"],
+      "@/ui": ["ui/"]
     }
   },
   "include": [

@@ -1,5 +1,4 @@
-.category,
-.categoryLink {
+.category {
     @include text-label;
 
     color: var(--prezly-accent-color);
@@ -7,25 +6,10 @@
 }
 
 .categoryLink {
-    @include link-primary;
-
-    cursor: pointer;
-
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
         text-decoration: none !important;
-    }
-
-    &:hover span,
-    &:focus span {
-        text-decoration: none !important;
-    }
-
-    &:not(:last-child) {
-        &::after {
-            content: ",";
-            margin-right: $spacing-half;
-        }
     }
 }
 
