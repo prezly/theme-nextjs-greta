@@ -1,7 +1,8 @@
 import classNames from 'classnames';
 
-import { SocialShareButton } from '@/components';
 import { IconFacebook, IconLinkedin, IconTwitter } from '@/icons';
+
+import { SocialShareButton } from '../SocialMedia';
 
 import StoryShareUrl from './StoryShareUrl';
 

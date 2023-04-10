@@ -5,7 +5,7 @@ import { useCurrentLocale } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import { useMemo, useState } from 'react';
 
-import { CategoryLink } from '@/components';
+import CategoryLink from '../CategoryLink';
 
 import styles from './CategoriesList.module.scss';
 
