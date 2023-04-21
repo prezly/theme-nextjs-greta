@@ -20,15 +20,13 @@ function StoryCard({ story }: Props) {
 
     return (
         <div className={classNames(styles.container)}>
-            <Link href={`/${story.slug}`} locale={false} passHref>
-                <a className={styles.imageWrapper}>
-                    <StoryImage
-                        story={story}
-                        size="medium"
-                        className={styles.image}
-                        placeholderClassName={styles.placeholder}
-                    />
-                </a>
+            <Link href={`/${story.slug}`} locale={false} className={styles.imageWrapper}>
+                <StoryImage
+                    story={story}
+                    size="medium"
+                    className={styles.image}
+                    placeholderClassName={styles.placeholder}
+                />
             </Link>
             <div className={classNames(styles.content)}>
                 {categories.length > 0 && (
@@ -44,15 +42,19 @@ function StoryCard({ story }: Props) {
                         [styles.noSpacingBottom]: !subtitle && !showDate,
                     })}
                 >
-                    <Link href={`/${story.slug}`} locale={false} passHref>
-                        <a className={styles.titleLink}>{title}</a>
+                    <Link href={`/${story.slug}`} locale={false} className={styles.titleLink}>
+                        {title}
                     </Link>
                 </h2>
 
                 {subtitle && showSubtitle && (
                     <p className={styles.subtitle}>
-                        <Link href={`/${story.slug}`} locale={false} passHref>
-                            <a className={styles.subtitleLink}>{subtitle}</a>
+                        <Link
+                            href={`/${story.slug}`}
+                            locale={false}
+                            className={styles.subtitleLink}
+                        >
+                            {subtitle}
                         </Link>
                     </p>
                 )}
