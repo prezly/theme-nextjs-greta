@@ -1,6 +1,6 @@
 import { Menu, Transition } from '@headlessui/react';
 import classNames from 'classnames';
-import type { FunctionComponent, PropsWithChildren, ReactChild, SVGProps } from 'react';
+import type { FunctionComponent, PropsWithChildren, ReactNode, SVGProps } from 'react';
 import { Fragment } from 'react';
 
 import { IconCaret } from '@/icons';
@@ -13,7 +13,7 @@ import styles from './Dropdown.module.scss';
 
 type Props = {
     icon?: FunctionComponent<SVGProps<SVGSVGElement>>;
-    label: ReactChild;
+    label: ReactNode;
     className?: string;
     menuClassName?: string;
     buttonClassName?: string;
