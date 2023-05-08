@@ -95,21 +95,17 @@ $header-height: 88px;
             opacity: 0.8;
         }
     }
+}
 
-    .title {
-        font-size: 1.75rem;
-        line-height: 2.5rem;
-        text-transform: uppercase;
-        color: inherit;
-
-        &.hidden {
-            @include sr-only;
-        }
-    }
-
+.title {
     font-size: 1.75rem;
     line-height: 2.5rem;
     text-transform: uppercase;
+    color: inherit;
+
+    &.hidden {
+        @include sr-only;
+    }
 
     @include not-desktop {
         font-size: 1.25rem;
