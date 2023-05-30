@@ -3,8 +3,8 @@ import type { Notification } from '@prezly/sdk';
 import { PageSeo, useNewsroom, useNewsroomContext } from '@prezly/theme-kit-nextjs';
 import dynamic from 'next/dynamic';
 import { Router, useRouter } from 'next/router';
-import { PropsWithChildren, useMemo } from 'react';
-import { useEffect, useState } from 'react';
+import type { PropsWithChildren } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { NotificationsBar } from '@/components';
 import { LoadingBar, ScrollToTopButton } from '@/ui';
