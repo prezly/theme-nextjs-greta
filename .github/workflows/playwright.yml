@@ -1,6 +1,11 @@
 name: Playwright Tests
 on:
   deployment_status:
+  push:
+    branches:
+      - '*'
+      # We are explicitly excluding `main` branch from E2E tests: CARE-1683
+      - '!main'
 
 jobs:
   test:
