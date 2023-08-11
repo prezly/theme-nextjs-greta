@@ -6,7 +6,8 @@ jobs:
   test:
    # We deploy multiple sites from main branch, which makes the setup quite tricky.
     # So we're only testing on Preview Env deployments in Pull Requests, which should be enough.
-    if: github.ref_name != 'main'
+    if: >-
+      !contains(fromJSON('["Production – theme-nextjs-greta-cookbook", "Production – theme-nextjs-greta-photography", "Production – theme-nextjs-greta-preview", "Production – theme-nextjs-greta-the-good-newsroom"]'), github.event.deployment.environment)
     uses: prezly/theme-kit-js/.github/workflows/playwright.shared.yml@main
     with:
       site-name: 'Preview Env'
