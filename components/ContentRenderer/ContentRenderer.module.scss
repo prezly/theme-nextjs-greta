@@ -98,6 +98,27 @@
             color: var(--prezly-accent-color);
             font-weight: $font-weight-bold;
         }
+
+        .prezly-slate-button-block {
+            background-color: var(--prezly-accent-color);
+            color: $color-base-white;
+
+            &:hover,
+            &:active {
+                background-color: var(--prezly-accent-color-darkest);
+            }
+
+            &--outlined {
+                background-color: $color-base-white;
+                color: $color-base-700;
+
+                &:hover,
+                &:active {
+                    background-color: $color-base-50;
+                    border-color: $color-base-200;
+                }
+            }
+        }
         /* stylelint-enable selector-class-pattern, max-nesting-depth, selector-max-compound-selectors */
     }
 }
