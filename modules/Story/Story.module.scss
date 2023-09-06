@@ -13,6 +13,7 @@ $story-container-max-width: 720px;
     @include text-label;
 
     color: $color-base-500;
+    margin: 0;
 }
 
 .linksAndDateWrapper {
