@@ -14,3 +14,20 @@ $story-container-max-width: 720px;
 
     color: $color-base-500;
 }
+
+.linksAndDateWrapper {
+    display: flex;
+    flex-direction: column;
+
+    &.left {
+        align-items: flex-start;
+    }
+
+    &.right {
+        align-items: flex-end;
+    }
+
+    &.center {
+        align-items: center;
+    }
+}
