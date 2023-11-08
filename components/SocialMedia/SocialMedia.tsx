@@ -35,7 +35,7 @@ export function SocialMedia({ className, companyInformation }: Props) {
                     aria-label="Facebook"
                     className={styles.link}
                 >
-                    <IconFacebook width={24} height={24} className={styles.icon} />
+                    <IconFacebook className={styles.icon} />
                 </a>
             )}
             {instagram && (
@@ -47,7 +47,7 @@ export function SocialMedia({ className, companyInformation }: Props) {
                     aria-label="Instagram"
                     className={styles.link}
                 >
-                    <IconInstagram width={24} height={24} className={styles.icon} />
+                    <IconInstagram className={styles.icon} />
                 </a>
             )}
             {linkedin && (
@@ -59,7 +59,7 @@ export function SocialMedia({ className, companyInformation }: Props) {
                     aria-label="LinkedIn"
                     className={styles.link}
                 >
-                    <IconLinkedin width={24} height={24} className={styles.icon} />
+                    <IconLinkedin className={styles.icon} />
                 </a>
             )}
             {pinterest && (
@@ -71,7 +71,7 @@ export function SocialMedia({ className, companyInformation }: Props) {
                     aria-label="Pinterest"
                     className={styles.link}
                 >
-                    <IconPinterest width={24} height={24} className={styles.icon} />
+                    <IconPinterest className={styles.icon} />
                 </a>
             )}
             {tiktok && (
@@ -83,7 +83,7 @@ export function SocialMedia({ className, companyInformation }: Props) {
                     aria-label="TikTok"
                     className={styles.link}
                 >
-                    <IconTikTok width={24} height={24} className={styles.icon} />
+                    <IconTikTok className={styles.icon} />
                 </a>
             )}
             {twitter && (
@@ -91,11 +91,11 @@ export function SocialMedia({ className, companyInformation }: Props) {
                     href={twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    title="Twitter"
-                    aria-label="Twitter"
+                    title="X"
+                    aria-label="X"
                     className={styles.link}
                 >
-                    <IconTwitter width={24} height={24} className={styles.icon} />
+                    <IconTwitter className={styles.icon} />
                 </a>
             )}
             {youtube && (
@@ -107,7 +107,7 @@ export function SocialMedia({ className, companyInformation }: Props) {
                     aria-label="Youtube"
                     className={styles.link}
                 >
-                    <IconYoutube width={24} height={24} className={styles.icon} />
+                    <IconYoutube className={styles.icon} />
                 </a>
             )}
         </div>
