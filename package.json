@@ -64,7 +64,7 @@
     "@types/tinycolor2": "1.4.6",
     "autoprefixer": "10.4.16",
     "dotenv": "^16.0.3",
-    "eslint": "8.55.0",
+    "eslint": "8.56.0",
     "next-logger": "3.0.2",
     "np": "7.7.0",
     "postcss": "8.4.32",
