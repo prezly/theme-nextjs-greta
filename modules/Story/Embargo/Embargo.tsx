@@ -12,6 +12,12 @@ type Props = {
 function Embargo({ story }: Props) {
     const { timezone } = story.newsroom;
     const date = new Date(story.published_at);
+    const utcOffset = date
+        .toLocaleString(Culture.isoCode(story.culture.code), {
+            timeZoneName: 'longOffset',
+            timeZone: timezone,
+        })
+        .replace(/^.*? GMT/, '');
 
     return (
         <div className={styles.embargo}>
@@ -33,13 +39,7 @@ function Embargo({ story }: Props) {
                                 minute="2-digit"
                                 timeZone={timezone}
                             />{' '}
-                            UTC
-                            {date
-                                .toLocaleString(Culture.isoCode(story.culture.code), {
-                                    timeZoneName: 'longOffset',
-                                    timeZone: timezone,
-                                })
-                                .replace(/^.*? GMT/, '')}
+                            (UTC{utcOffset})
                         </>
                     ),
                 }}
