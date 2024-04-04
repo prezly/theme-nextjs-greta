@@ -1,6 +1,7 @@
 import { ACTIONS, useAnalytics } from '@prezly/analytics-nextjs';
 import { translations } from '@prezly/theme-kit-intl';
 import { useGetLinkLocaleSlug } from '@prezly/theme-kit-nextjs';
+import { useDebouncedCallback } from '@react-hookz/web';
 import type { ChangeEvent } from 'react';
 import type { SearchBoxExposed, SearchBoxProvided } from 'react-instantsearch-core';
 import { connectSearchBox } from 'react-instantsearch-dom';
@@ -22,11 +23,19 @@ function SearchBar({ currentRefinement, refine }: Props) {
 
     const action = localeSlug ? `/${localeSlug}/${SEARCH_PAGE_URL}` : `/${SEARCH_PAGE_URL}`;
 
+    const trackQuery = useDebouncedCallback(
+        (query: string) => {
+            track(ACTIONS.SEARCH, { query });
+        },
+        [track],
+        500,
+    );
+
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
         const query = event.currentTarget.value;
 
         refine(query);
-        track(ACTIONS.SEARCH, { query });
+        trackQuery(query);
     }
 
     return (
