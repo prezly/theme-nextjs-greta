@@ -9,20 +9,22 @@ import styles from './DropdownItem.module.scss';
 
 type Props = Pick<LinkProps, 'href'> & {
     className?: string;
-    linkClassName?: string;
     forceRefresh?: boolean;
-    withMobileDisplay?: boolean;
+    linkClassName?: string;
     localeCode?: string | false;
+    onClick?: () => void;
+    withMobileDisplay?: boolean;
 };
 
 function DropdownItem({
-    href,
-    localeCode,
-    className,
-    linkClassName,
-    forceRefresh,
-    withMobileDisplay,
     children,
+    className,
+    forceRefresh,
+    href,
+    linkClassName,
+    localeCode,
+    onClick,
+    withMobileDisplay,
 }: PropsWithChildren<Props>) {
     return (
         <Menu.Item
@@ -38,6 +40,7 @@ function DropdownItem({
                     className={classNames(styles.link, linkClassName, {
                         [styles.active]: active,
                     })}
+                    onClick={onClick}
                     forceRefresh={forceRefresh}
                 >
                     {children}
