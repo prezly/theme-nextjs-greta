@@ -1,3 +1,4 @@
+import { DOWNLOAD, useAnalytics } from '@prezly/analytics-nextjs';
 import { translations } from '@prezly/theme-kit-intl';
 import { FormattedMessage } from 'react-intl';
 
@@ -11,8 +12,20 @@ interface Props {
 }
 
 function DownloadLink({ href }: Props) {
+    const { track } = useAnalytics();
+
+    function handleClick() {
+        track(DOWNLOAD.MEDIA_GALLERY);
+    }
+
     return (
-        <ButtonLink variation="primary" forceRefresh href={href} className={styles.link}>
+        <ButtonLink
+            variation="primary"
+            forceRefresh
+            href={href}
+            className={styles.link}
+            onClick={handleClick}
+        >
             <FormattedMessage {...translations.actions.download} />
             <IconDownload width={16} height={16} className={styles.icon} />
         </ButtonLink>
