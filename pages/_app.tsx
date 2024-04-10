@@ -17,7 +17,7 @@ function App({ Component, pageProps }: AppProps) {
     const { newsroomContextProps, translations, isTrackingEnabled, ...customPageProps } =
         pageProps as PageProps & BasePageProps;
 
-    const { localeCode, newsroom, currentStory } = newsroomContextProps || {
+    const { localeCode, newsroom, currentGallery, currentStory } = newsroomContextProps || {
         localeCode: DEFAULT_LOCALE,
     };
     const locale = useMemo(() => LocaleObject.fromAnyCode(localeCode), [localeCode]);
@@ -39,6 +39,7 @@ function App({ Component, pageProps }: AppProps) {
                 messages={translations}
             >
                 <AnalyticsContextProvider
+                    gallery={currentGallery}
                     isEnabled={isTrackingEnabled}
                     newsroom={newsroom}
                     story={currentStory}
