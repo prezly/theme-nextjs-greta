@@ -5,7 +5,7 @@ import UploadcareImage from '@uploadcare/nextjs-loader';
 import classNames from 'classnames';
 import Link from 'next/link';
 
-import { getUploadcareFile } from '@/utils/getUploadcareFile';
+import { getUploadcareFile } from '@/utils';
 
 import styles from './GalleryCard.module.scss';
 

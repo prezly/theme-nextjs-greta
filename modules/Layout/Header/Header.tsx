@@ -17,7 +17,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { useDevice, useDisplayedLanguages } from '@/hooks';
 import { IconClose, IconMenu, IconSearch } from '@/icons';
 import { Button, ButtonLink } from '@/ui';
-import { getUploadcareFile } from '@/utils/getUploadcareFile';
+import { getUploadcareFile } from '@/utils';
 
 import CategoriesDropdown from './CategoriesDropdown';
 import LanguagesDropdown from './LanguagesDropdown';
