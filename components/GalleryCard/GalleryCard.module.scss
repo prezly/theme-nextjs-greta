@@ -8,12 +8,18 @@
     }
 }
 
-.thumbnail {
-    @include border-radius-s;
+.thumbnailWrapper {
     @include medium-card-aspect-ratio;
 
+    position: relative;
     margin: 0 auto $spacing-4;
+}
+
+.thumbnail {
+    @include border-radius-s;
+
     border: 1px solid $color-borders;
+    object-fit: cover;
 }
 
 .title {

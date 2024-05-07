@@ -1,34 +1,34 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
+
 export type CardSize = 'small' | 'medium' | 'big' | 'tiny';
 
-function getDesktopImageSize(cardSize: CardSize) {
+export function getCardImageSizes(cardSize: CardSize) {
+    if (cardSize === 'tiny') {
+        return '60px';
+    }
+
+    return [
+        '(max-width: 430px) 390px',
+        `(max-width: 767px) ${getTabletImageSize(cardSize)}`,
+        getDesktopImageSize(cardSize),
+    ].join(', ');
+}
+
+export function getTabletImageSize(cardSize: CardSize) {
+    if (cardSize === 'big') {
+        return '725px';
+    }
+
+    return '350px';
+}
+
+export function getDesktopImageSize(cardSize: CardSize) {
     switch (cardSize) {
         case 'medium':
-            return 380;
+            return '380px';
         case 'small':
-            return 240;
+            return '240px';
         default:
-            return 600;
+            return '600px';
     }
-}
-
-export function getCardImageSizes(desiredSize: CardSize) {
-    if (desiredSize === 'tiny') {
-        return {
-            default: 60,
-        };
-    }
-
-    return {
-        mobile: 420,
-        tablet: desiredSize === 'big' ? 350 : 240,
-        desktop: getDesktopImageSize(desiredSize),
-        default: 600,
-    };
-}
-
-export function getStoryImageSizes() {
-    return {
-        mobile: 420,
-        default: 720,
-    };
 }
