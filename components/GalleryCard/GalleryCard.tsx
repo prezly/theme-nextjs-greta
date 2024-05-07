@@ -1,9 +1,11 @@
 import type { NewsroomGallery } from '@prezly/sdk';
 import { getGalleryThumbnail } from '@prezly/theme-kit-core';
 import { useGetLinkLocaleSlug } from '@prezly/theme-kit-nextjs';
-import UploadcareImage from '@prezly/uploadcare-image';
+import UploadcareImage from '@uploadcare/nextjs-loader';
 import classNames from 'classnames';
 import Link from 'next/link';
+
+import { getUploadcareFile } from '@/utils/getUploadcareFile';
 
 import styles from './GalleryCard.module.scss';
 
@@ -16,6 +18,7 @@ function GalleryCard({ className, gallery }: Props) {
     const { name, uuid } = gallery;
     const galleryThumbnail = getGalleryThumbnail(gallery);
     const getLinkLocaleSlug = useGetLinkLocaleSlug();
+    const thumbnailImage = getUploadcareFile(galleryThumbnail);
 
     return (
         <Link
@@ -23,14 +26,16 @@ function GalleryCard({ className, gallery }: Props) {
             locale={getLinkLocaleSlug()}
             className={classNames(styles.container, className)}
         >
-            {galleryThumbnail && (
-                <UploadcareImage
-                    className={styles.thumbnail}
-                    lazy
-                    layout="fill"
-                    objectFit="cover"
-                    imageDetails={galleryThumbnail}
-                />
+            {thumbnailImage && (
+                <div className={styles.thumbnailWrapper}>
+                    <UploadcareImage
+                        alt={name}
+                        className={styles.thumbnail}
+                        fill
+                        sizes="(max-width: 1023px) 90vw, 580px"
+                        src={thumbnailImage.cdnUrl}
+                    />
+                </div>
             )}
             <span className={styles.title}>{name}</span>
         </Link>
