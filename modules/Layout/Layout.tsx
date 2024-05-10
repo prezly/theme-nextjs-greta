@@ -1,4 +1,4 @@
-import { Analytics, useAnalytics } from '@prezly/analytics-nextjs';
+import { Tracking, useAnalytics } from '@prezly/analytics-nextjs';
 import { Notification, Story } from '@prezly/sdk';
 import {
     PageSeo,
@@ -91,7 +91,7 @@ function Layout({ children, description, imageUrl, title, hasError }: PropsWithC
 
     return (
         <>
-            <Analytics />
+            <Tracking />
             <Branding newsroom={newsroom} />
             <PageSeo
                 title={title}
