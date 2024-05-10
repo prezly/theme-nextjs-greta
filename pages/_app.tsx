@@ -1,4 +1,4 @@
-import { AnalyticsProvider, Tracking } from '@prezly/analytics-nextjs';
+import { AnalyticsProvider } from '@prezly/analytics-nextjs';
 import { DEFAULT_LOCALE, LocaleObject } from '@prezly/theme-kit-core';
 import type { PageProps } from '@prezly/theme-kit-nextjs';
 import { NewsroomContextProvider } from '@prezly/theme-kit-nextjs';
@@ -44,7 +44,6 @@ function App({ Component, pageProps }: AppProps) {
                     newsroom={newsroom}
                     story={currentStory}
                 >
-                    <Tracking />
                     <Component {...customPageProps} />
                 </AnalyticsProvider>
             </IntlProvider>
