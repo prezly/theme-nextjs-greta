@@ -1,4 +1,4 @@
-import { AnalyticsContextProvider } from '@prezly/analytics-nextjs';
+import { AnalyticsProvider, Tracking } from '@prezly/analytics-nextjs';
 import { DEFAULT_LOCALE, LocaleObject } from '@prezly/theme-kit-core';
 import type { PageProps } from '@prezly/theme-kit-nextjs';
 import { NewsroomContextProvider } from '@prezly/theme-kit-nextjs';
@@ -38,14 +38,15 @@ function App({ Component, pageProps }: AppProps) {
                 defaultLocale={DEFAULT_LOCALE}
                 messages={translations}
             >
-                <AnalyticsContextProvider
+                <AnalyticsProvider
                     gallery={currentGallery}
                     isEnabled={isTrackingEnabled}
                     newsroom={newsroom}
                     story={currentStory}
                 >
+                    <Tracking />
                     <Component {...customPageProps} />
-                </AnalyticsContextProvider>
+                </AnalyticsProvider>
             </IntlProvider>
         </NewsroomContextProvider>
     );
