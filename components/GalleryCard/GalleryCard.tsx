@@ -5,7 +5,7 @@ import UploadcareImage from '@uploadcare/nextjs-loader';
 import classNames from 'classnames';
 import Link from 'next/link';
 
-import { getUploadcareFile } from '@/utils';
+import { getUploadcareImage } from '@/utils';
 
 import styles from './GalleryCard.module.scss';
 
@@ -18,7 +18,7 @@ function GalleryCard({ className, gallery }: Props) {
     const { name, uuid } = gallery;
     const galleryThumbnail = getGalleryThumbnail(gallery);
     const getLinkLocaleSlug = useGetLinkLocaleSlug();
-    const thumbnailImage = getUploadcareFile(galleryThumbnail);
+    const thumbnailImage = getUploadcareImage(galleryThumbnail);
 
     return (
         <Link
