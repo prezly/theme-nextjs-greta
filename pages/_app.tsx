@@ -21,6 +21,7 @@ function App({ Component, pageProps }: AppProps) {
         localeCode: DEFAULT_LOCALE,
     };
     const locale = useMemo(() => LocaleObject.fromAnyCode(localeCode), [localeCode]);
+    const plausibleDomains = [newsroom.plausible_site_id, 'rollup.customers.prezly.com'].join(',');
 
     // `newsroomContextProps` can be undefined, if there was error when fetching the newsroom props.
     // This can happen due to connection issues, or incorrect credentials in your .env file.
@@ -42,6 +43,7 @@ function App({ Component, pageProps }: AppProps) {
                     gallery={currentGallery}
                     isEnabled={isTrackingEnabled}
                     newsroom={newsroom}
+                    plausibleDomain={plausibleDomains}
                     story={currentStory}
                 >
                     <Component {...customPageProps} />
