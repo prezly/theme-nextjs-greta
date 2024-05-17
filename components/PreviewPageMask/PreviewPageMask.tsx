@@ -4,9 +4,9 @@ import styles from './PreviewPageMask.module.scss';
 
 export function PreviewPageMask() {
     const searchParams = useSearchParams();
-    const preview = JSON.parse(searchParams.get('preview') ?? 'false');
+    const mask = JSON.parse(searchParams.get('mask') || 'false');
 
-    if (!preview) {
+    if (!mask) {
         return null;
     }
 
