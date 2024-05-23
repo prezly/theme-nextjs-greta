@@ -3,7 +3,7 @@ $header-height: 88px;
 .container {
     display: flex;
     background: var(--prezly-header-background-color);
-    height: $header-height;
+    min-height: $header-height;
     z-index: 2;
 }
 
@@ -86,6 +86,8 @@ $header-height: 88px;
 
 .newsroom {
     @include link-primary;
+
+    display: flex;
 
     &.withoutLogo {
         color: var(--prezly-header-link-color);
