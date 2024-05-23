@@ -28,6 +28,7 @@ export function parseQuery(query: Partial<ThemeSettingsQuery>): Partial<ThemeSet
         font: query.font,
         header_background_color: query.header_background_color,
         header_link_color: query.header_link_color,
+        logo_size: query.logo_size,
         show_date,
         show_subtitle,
     };

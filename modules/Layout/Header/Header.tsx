@@ -6,7 +6,6 @@ import {
     useGetLinkLocaleSlug,
     useNewsroom,
 } from '@prezly/theme-kit-nextjs';
-import UploadcareImage from '@uploadcare/nextjs-loader';
 import classNames from 'classnames';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -14,13 +13,13 @@ import type { MouseEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { useDevice, useDisplayedLanguages } from '@/hooks';
+import { useDevice, useDisplayedLanguages, useThemeSettings } from '@/hooks';
 import { IconClose, IconMenu, IconSearch } from '@/icons';
 import { Button, ButtonLink } from '@/ui';
-import { getUploadcareImage } from '@/utils';
 
 import CategoriesDropdown from './CategoriesDropdown';
 import LanguagesDropdown from './LanguagesDropdown';
+import { Logo } from './Logo';
 
 import styles from './Header.module.scss';
 
@@ -32,6 +31,7 @@ interface Props {
 
 function Header({ hasError }: Props) {
     const { newsroom_logo, display_name, public_galleries_number } = useNewsroom();
+    const { logoSize } = useThemeSettings();
     const categories = useCategories();
     const displayedLanguages = useDisplayedLanguages();
     const { name } = useCompanyInformation();
@@ -94,7 +94,6 @@ function Header({ hasError }: Props) {
     }, [isMenuOpen]);
 
     const newsroomName = name || display_name;
-    const newsroomLogo = getUploadcareImage(newsroom_logo);
 
     return (
         <header ref={headerRef} className={styles.container}>
@@ -114,15 +113,7 @@ function Header({ hasError }: Props) {
                         >
                             {newsroomName}
                         </h1>
-                        {newsroomLogo && (
-                            <UploadcareImage
-                                alt={newsroomName}
-                                className={styles.logo}
-                                src={newsroomLogo.cdnUrl}
-                                width={320}
-                                height={56}
-                            />
-                        )}
+                        <Logo image={newsroom_logo} size={logoSize} />
                     </Link>
 
                     <div className={styles.navigationWrapper}>

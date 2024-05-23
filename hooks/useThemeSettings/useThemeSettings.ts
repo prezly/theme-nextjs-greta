@@ -31,6 +31,7 @@ export function useThemeSettings(): ThemeSettings {
         font: settings.font,
         headerBackgroundColor: settings.header_background_color,
         headerLinkColor: settings.header_link_color,
+        logoSize: settings.logo_size,
         showDate: settings.show_date,
         showSubtitle: settings.show_subtitle,
     };

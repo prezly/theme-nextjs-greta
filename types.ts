@@ -21,6 +21,7 @@ export interface ThemeSettingsApiResponse {
     font: Font;
     header_background_color: string;
     header_link_color: string;
+    logo_size: string;
     show_date: boolean;
     show_subtitle: boolean;
 }
@@ -30,6 +31,7 @@ export interface ThemeSettings {
     font: Font;
     headerBackgroundColor: string;
     headerLinkColor: string;
+    logoSize: string;
     showDate: boolean;
     showSubtitle: boolean;
 }
