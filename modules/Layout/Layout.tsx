@@ -13,6 +13,7 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { NotificationsBar } from '@/components';
 import { PreviewPageMask } from '@/components/PreviewPageMask';
+import { WindowScrollListener } from '@/components/WindowScrollListener';
 import { LoadingBar, ScrollToTopButton } from '@/ui';
 
 import Boilerplate from './Boilerplate';
@@ -116,6 +117,7 @@ function Layout({ children, description, imageUrl, title, hasError }: PropsWithC
             </div>
             <ScrollToTopButton />
             <PreviewPageMask />
+            <WindowScrollListener />
         </>
     );
 }
