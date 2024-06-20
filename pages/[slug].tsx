@@ -20,7 +20,7 @@ export const getServerSideProps = getStoryPageServerSideProps<BasePageProps>(
         isTrackingEnabled: isTrackingEnabled(context),
         translations: await importMessages(newsroomContextProps.localeCode),
     }),
-    [PrezlyStory.FormatVersion.SLATEJS_V5],
+    [PrezlyStory.FormatVersion.SLATEJS_V6],
 );
 
 export default StoryPage;
